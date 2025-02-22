@@ -1,0 +1,69 @@
+<div class="flushimg">
+  <img src="flush/white.png" id="white" class="hidden" alt="White">
+  <img src="flush/black.png" id="black" class="hidden" alt="Black">
+  <img src="flush/green.png" id="green" class="hidden" alt="Green">
+  <img src="flush/red.png" id="red" class="hidden" alt="Red">
+  <img src="flush/blue.png" id="blue" class="hidden" alt="Blue">
+  <img src="flush/yellow.png" id="yellow" class="hidden" alt="Yellow">
+</div>
+
+<div class="option-group">
+  <button class="option-btn btn-common flush" data-color="white">
+      <div class="white-btn"></div> (P2AF1)
+  </button>                                                                           
+</div>
+<div class="option-group">
+  <button class="option-btn btn-common flush" data-color="black">
+      <div class="black-btn"></div> (P2AF2)
+  </button>                                            
+</div>
+<div class="option-group">
+  <button class="option-btn btn-common flush" data-color="green">
+      <div class="green-btn"></div> (P2AF3)
+  </button>
+</div>
+<div class="option-group">
+  <button class="option-btn btn-common flush" data-color="red">
+      <div class="red-btn"></div> (P2AF4)
+  </button>
+</div>
+<div class="option-group">
+  <button class="option-btn btn-common flush" data-color="blue">
+      <div class="blue-btn"></div> (P2AF6)
+  </button>
+</div>
+<div class="option-group">
+  <button class="option-btn btn-common flush" data-color="yellow">
+      <div class="yellow-btn"></div> (P2AF8)
+  </button>
+</div>
+
+<style>
+  .hidden {
+      display: none;
+  }
+</style>
+
+<script>
+  // Add event listeners to all buttons with the class 'option-btn'
+  document.querySelectorAll('.option-btn').forEach(button => {
+      button.addEventListener('click', function () {
+          // Get the color value from the data-color attribute
+          const color = this.getAttribute('data-color');
+          console.log("Button clicked: " + color);  // Debugging line
+
+          // Hide all images initially by adding the 'hidden' class
+          document.querySelectorAll('.flushimg img').forEach(img => {
+              img.classList.add('hidden');
+          });
+
+          // Show the corresponding image by removing the 'hidden' class
+          const selectedImage = document.getElementById(color);
+          console.log("Selected image: ", selectedImage);  // Debugging line
+          
+          if (selectedImage) {
+              selectedImage.classList.remove('hidden');  // Make the corresponding image visible
+          }
+      });
+  });
+</script>
